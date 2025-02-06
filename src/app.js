@@ -2,12 +2,24 @@ const express = require("express");
 
 const app = express();
 
-app.use("/hello", (req, res) => {
-    res.send("Hello Hello!");
+app.get("/user", (req, res) => {
+    res.send({ firstName: "Juned", lastName: "Khan" });
 })
 
-app.use("/test", (req, res) => {
-    res.send("Hello from server!")
+app.post("/user", (req, res) => {
+    res.send("Data succesfully added!");
+})
+
+app.delete("/user", (req, res) => {
+    res.send("Successfully deleted");
+});
+
+app.put("/user", (req, res) => {
+    res.send("Data replaced succesfully!")
+})
+
+app.patch("/user", (req, res) => {
+    res.send("Data updated succesfully!")
 })
 
 const PORT = 3000;
