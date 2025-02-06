@@ -2,13 +2,18 @@ const express = require("express");
 
 const app = express();
 
+app.get("/user/:userId", (req, res) => {
+    console.log("req.params", req.params);
+    res.send({ firstName: "Juned", lastName: "Khan" });
+});
+
 app.get("/user", (req, res) => {
     res.send({ firstName: "Juned", lastName: "Khan" });
-})
+});
 
 app.post("/user", (req, res) => {
     res.send("Data succesfully added!");
-})
+});
 
 app.delete("/user", (req, res) => {
     res.send("Successfully deleted");
@@ -16,11 +21,11 @@ app.delete("/user", (req, res) => {
 
 app.put("/user", (req, res) => {
     res.send("Data replaced succesfully!")
-})
+});
 
 app.patch("/user", (req, res) => {
     res.send("Data updated succesfully!")
-})
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
